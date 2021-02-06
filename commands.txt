@@ -1,5 +1,26 @@
+Install Android-SDK from 
+Set the ANDROID_SDK_ROOT in user env variable to C:\Users\sanjeev.kumar\AppData\Local\Android\Sdk
+
+In PATH add
+C:\Users\sanjeev.kumar\AppData\Local\Android\Sdk\platform-tools
+
 
 npm i -g create-react-native-app
 create-react-native-app myapp
 npm run android 
+
+
+
+git init
+git status
+git add .
+git commit -m "some commit messages"
+git remote add myapp1 https://github.com/sanjeevkumarpinelabs/react-native-myapp1
+git push 
+
+View acts like a container , there is no <div> in react native.
+
+Go on the Android emulator and press Ctrl+M , select Debug, it will launch explorer window
+
+
 
