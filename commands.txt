@@ -1,0 +1,5 @@
+
+npm i -g create-react-native-app
+create-react-native-app myapp
+npm run android 
+
