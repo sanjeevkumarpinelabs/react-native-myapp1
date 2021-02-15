@@ -1,6 +1,6 @@
 import { setStatusBarTranslucent, StatusBar } from 'expo-status-bar';
 import React , {useState} from 'react';
-import { StyleSheet, Text, View,Button} from 'react-native';
+import { ActivityIndicator,StyleSheet, Text, View,Button,FlatList} from 'react-native';
 import {TextInput,Switch,ScrollView} from 'react-native-gesture-handler'
 import APIService from '../Services/APIService'
 
@@ -44,25 +44,12 @@ export default function UserForm() {
                      state.users.push(user);
                      setState({...state,users:state.users});
                  }); 
+    promise.catch(error => {
+        console.log(error);
+    })
             
   }
 
-//   function getUsers(){
-//     const promise = fetch(URL,{
-//         method:'GET',
-//         headers: {
-//             'content-type' : 'application/json' 
-//         },
-//         body:JSON.stringify(state)
-//     })
-//     promise.then(response => {
-//             res
-//             console.log(respone)}
-//     )
-//            .catch(error => {
-//               console.error('Error:', error);
-//             });
-// }
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -79,17 +66,39 @@ export default function UserForm() {
       <Button title = "Save" onPress={saveUser}></Button>
 
       <StatusBar style="dark" />
-        <ScrollView>
+        {/* <ScrollView>
             {state.users.map((user,index) => {
                 return <View style={styles.userRow}><Text>{user.name},{user.age}</Text>
                 <Button title = "Delete" onPress={deleteUser.bind(this,index,user.id)}></Button>
                 </View>
             })}
-         </ScrollView>
+         </ScrollView> */}
+
+        <FlatList
+                data={state.users}
+                renderItem={item=>{
+                    return <View style={styles.userRow}><Text>{item.item.name},{item.item.age}</Text>
+                    <Button title = "Delete" onPress={deleteUser.bind(this,item.index,item.item.id)}></Button>
+                    </View>
+                }}
+                // keyExtractor={user => user.id}
+            ></FlatList>
+
+<ActivityIndicator color="#0000ff" style={styles.container} size="large"></ActivityIndicator>
+
       </ScrollView>
     </View>
   );
 
+//   const Item = ({ title }) => (
+//     <View style={styles.item}>
+//       <Text style={styles.title}>{title}</Text>
+//     </View>
+//   );
+
+//   const renderUser = ({ user }) => (
+//      <Item Name={user.item.name} />
+//   );
   function deleteUser(index,id){
     console.log(this);
     console.log(id);
@@ -130,4 +139,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+  
 });

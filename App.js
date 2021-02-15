@@ -3,6 +3,7 @@ import React , {useState} from 'react';
 import { StyleSheet, Text, View,Button} from 'react-native';
 import {TextInput,Switch,ScrollView} from 'react-native-gesture-handler'
 import UserForm from  './components/userform'
+import ContactList from './components/contactList';
 
 export default function App() {
   const [state,setState] = useState({name:"Sanjeev  Abcd" , age:"40" , isEnabled:true});
@@ -15,7 +16,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <ScrollView>
-      <UserForm></UserForm>
+      {/* <UserForm></UserForm> */}
+      <ContactList></ContactList>
       </ScrollView>
     </View>
   );
