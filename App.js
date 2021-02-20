@@ -6,6 +6,8 @@ import UserForm from  './components/userform'
 import ContactList from './components/contactList';
 import SMS1 from "./components/SMS";
 import LocationComponent from "./components/Location";
+import FingerPrint from "./components/fingerprint-auth"
+import Cellular from "./components/CellularDemo"
 
 export default function App() {
   const [state,setState] = useState({name:"Sanjeev  Abcd" , age:"40" , isEnabled:true});
@@ -20,11 +22,13 @@ export default function App() {
       <ScrollView>
       {/* <UserForm></UserForm> */}
       {/* <ContactList></ContactList> */}
-      <LocationComponent></LocationComponent>
+      {/* <LocationComponent></LocationComponent> */}
         {/* <FingerPrint></FingerPrint> */}
         {/* <Userform></Userform> */}
         {/* <ContactList></ContactList> */}
         {/* <SMS1></SMS1> */}
+
+        <Cellular></Cellular>
       </ScrollView>
     </View>
   );
