@@ -4,6 +4,8 @@ import { StyleSheet, Text, View,Button} from 'react-native';
 import {TextInput,Switch,ScrollView} from 'react-native-gesture-handler'
 import UserForm from  './components/userform'
 import ContactList from './components/contactList';
+import SMS1 from "./components/SMS";
+import LocationComponent from "./components/Location";
 
 export default function App() {
   const [state,setState] = useState({name:"Sanjeev  Abcd" , age:"40" , isEnabled:true});
@@ -17,7 +19,12 @@ export default function App() {
     <View style={styles.container}>
       <ScrollView>
       {/* <UserForm></UserForm> */}
-      <ContactList></ContactList>
+      {/* <ContactList></ContactList> */}
+      <LocationComponent></LocationComponent>
+        {/* <FingerPrint></FingerPrint> */}
+        {/* <Userform></Userform> */}
+        {/* <ContactList></ContactList> */}
+        {/* <SMS1></SMS1> */}
       </ScrollView>
     </View>
   );
